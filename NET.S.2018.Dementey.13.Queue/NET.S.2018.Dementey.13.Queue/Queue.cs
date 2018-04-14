@@ -1,6 +1,5 @@
 ﻿namespace CustomQueue
 {
-    ///TODO test and output message
     using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -37,6 +36,23 @@
             }
 
             _collection = new T[DefaultCapacity];
+        }
+
+        /// <summary>
+        /// The constructor of the class.
+        /// </summary>
+        /// <param name="capacity">
+        /// The initial number of elements.
+        /// </param>
+        /// <param name="collection">
+        /// start collection in queue 
+        /// </param>
+        public Queue(IEnumerable<T> collection, int capacity = DefaultCapacity) : this(capacity)
+        {
+            foreach (var item in collection)
+            {
+                Enqueue(item);
+            }
         }
 
         /// <summary>
@@ -149,23 +165,26 @@
                 _enumeratorVersion = queue._version;
             }
 
+            /// <summary>
+            /// The current item.
+            /// </summary>
             public T Current
             {
                 get
                 {
                     if (isDispose)
                     {
-                        throw new InvalidOperationException();
+                        throw new InvalidOperationException("Enumerator is dispose.");
                     }
 
                     if (_enumeratorVersion != _queue._version)
                     {
-                        throw new InvalidOperationException("queue was changed");
+                        throw new InvalidOperationException("Queue was changed");
                     }
 
                     if (_currentIndex == -1)
                     {
-                        throw new InvalidOperationException();
+                        throw new InvalidOperationException("The current item is not installed.");
                     }
 
                     if (_currentIndex == _queue.Count)
@@ -177,33 +196,49 @@
                 }
             }
 
-            object IEnumerator.Current => throw new NotImplementedException();
+            /// <summary>
+            /// The current item.
+            /// </summary>
+            object IEnumerator.Current
+            {
+                get
+                {
+                    return Current;
+                }
+            }
 
+            /// <summary>
+            /// Reset the position of the current item.
+            /// </summary>
             public void Reset()
             {
                 if (isDispose)
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException("Enumerator is dispose.");
                 }
 
                 if (_enumeratorVersion != _queue._version)
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException("Queue was changed");
                 }
 
                 _currentIndex = -1;
             }
 
+            /// <summary>
+            /// Go to the next item.
+            /// </summary>
+            /// <returns></returns>
             public bool MoveNext()
             {
                 if (isDispose)
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException("Enumerator is dispose.");
                 }
 
                 if (_enumeratorVersion != _queue._version)
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException("Queue was changed");
                 }
 
                 if (++_currentIndex >= _queue.Count)
@@ -215,6 +250,9 @@
                 return true;
             }
 
+            /// <summary>
+            /// Dispose enumerator.
+            /// </summary>
             public void Dispose()
             {
                 isDispose = true;
