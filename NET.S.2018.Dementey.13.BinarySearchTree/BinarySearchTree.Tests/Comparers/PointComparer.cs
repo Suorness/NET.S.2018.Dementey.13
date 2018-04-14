@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BinaryTree.Tests.Comparers
 {
-    class PointComparer : IComparer<Point>
+    internal class PointComparer : IComparer<Point>
     {
         public int Compare(Point x, Point y)
         {
@@ -16,7 +16,7 @@ namespace BinaryTree.Tests.Comparers
             }
             else
             {
-                if(x.X > y.X)
+                if (x.X > y.X)
                 {
                     return 1;
                 }

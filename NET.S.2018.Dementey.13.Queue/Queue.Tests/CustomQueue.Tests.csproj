@@ -53,7 +53,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NET.S.2018.Dementey.13.Queue\CustomQueue.csproj">
+    <ProjectReference Include="..\Queue\CustomQueue.csproj">
       <Project>{262c953e-c579-4160-9e8d-e09aaa5f81b0}</Project>
       <Name>CustomQueue</Name>
     </ProjectReference>

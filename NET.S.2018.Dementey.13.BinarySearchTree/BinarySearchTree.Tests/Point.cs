@@ -1,12 +1,12 @@
 ﻿namespace BinaryTree.Tests
 {
-    struct Point
+    internal struct Point
     {
-        public int X { get; }
-
         public Point(int x)
         {
             X = x;
         }
+
+        public int X { get; }
     }
 }

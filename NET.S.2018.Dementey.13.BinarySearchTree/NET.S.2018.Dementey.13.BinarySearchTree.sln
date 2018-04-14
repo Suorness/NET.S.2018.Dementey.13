@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree", "BinaryTree\Bi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{76BF66F2-03B6-49B4-B99E-007A94BA1695}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree.Tests", "BinarySearchTree\BinaryTree.Tests.csproj", "{4A38FEDE-CD5F-489A-84EE-531E8E9A0810}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree.Tests", "BinarySearchTree.Tests\BinaryTree.Tests.csproj", "{4A38FEDE-CD5F-489A-84EE-531E8E9A0810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
