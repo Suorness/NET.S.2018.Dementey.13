@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace BinaryTree
 {
+    /// <summary>
+    /// A class describing a node of a binary tree.
+    /// </summary>
+    /// <typeparam name="T">The type of stored data.</typeparam>
     internal class Node<T>
     {
         internal Node<T> Left;

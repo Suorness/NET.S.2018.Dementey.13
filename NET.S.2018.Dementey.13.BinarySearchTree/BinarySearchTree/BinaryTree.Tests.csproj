@@ -47,11 +47,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinarySearchTreeTests.cs" />
+    <Compile Include="Book.cs" />
+    <Compile Include="Comparers\BookComparer.cs" />
+    <Compile Include="Comparers\IntComarer.cs" />
+    <Compile Include="Comparers\PointComparer.cs" />
+    <Compile Include="Comparers\StringComparer.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BinaryTree\BinaryTree.csproj">
+      <Project>{dba56293-0188-49a5-b673-50484dc69a50}</Project>
+      <Name>BinaryTree</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
